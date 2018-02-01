@@ -77,16 +77,77 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasChimaeraPlus());
 	}
 	
+	private void creaExcelEstado(String guildName, Map<String, Player> guildPlayerCollection) throws IOException, InvalidFormatException {
+		Workbook wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roaestadotemplate.xlsx"));
+		Sheet wsheet = wbook.getSheetAt(0);
+		List<Player> players = new ArrayList<Player>(guildPlayerCollection.values());
+		Collections.sort(players);
+		int rowNumber = 1;
+		for (Player player : players) {
+			Map<String, Character> characterCollection = player.getCharacterCollection();
+			for (Character character:characterCollection.values()) {
+				int i = 1;
+				Row row = wsheet.getRow(rowNumber);
+				row.getCell(i++).setCellValue(player.getPlayerName());
+				row.getCell(i++).setCellValue(character.getName());
+				row.getCell(i++).setCellValue(character.getStars());
+				row.getCell(i++).setCellValue(character.getGear());
+				row.getCell(i++).setCellValue(character.getLevel());
+				rowNumber++;
+			}
+			Map<String, Ship> shipCollection = player.getShipCollection();
+			for (Ship ship:shipCollection.values()) {
+				int i = 1;
+				Row row = wsheet.getRow(rowNumber);
+				row.getCell(i++).setCellValue(player.getPlayerName());
+				row.getCell(i++).setCellValue(ship.getName());
+				row.getCell(i++).setCellValue(ship.getStars());
+				row.getCell(i++).setCellValue("");
+				row.getCell(i++).setCellValue(ship.getLevel());
+				rowNumber++;				
+			}
+		}
+		wsheet = wbook.getSheetAt(1);
+		rowNumber = 1;
+		for (String characterName:CharacterTypes.getCharacterNames()) {
+			Row row = wsheet.getRow(rowNumber);
+			row.getCell(0).setCellValue(characterName);
+			row.getCell(1).setCellValue(CharacterTypes.get(characterName));
+			rowNumber++;
+		}
+		wsheet = wbook.getSheetAt(2);
+		rowNumber = 1;
+		for (String shipName:ShipTypes.getShipNames()) {
+			Row row = wsheet.getRow(rowNumber);
+			row.getCell(0).setCellValue(shipName);
+			row.getCell(1).setCellValue(ShipTypes.get(shipName));
+			rowNumber++;
+		}
+		List<String> playerNames = new ArrayList<String>(guildPlayerCollection.keySet());
+		Collections.sort(playerNames, ASCIICaseInsensitiveComparator.CASE_INSENSITIVE_ORDER);
+		wsheet = wbook.getSheetAt(3);
+		Row row = wsheet.getRow(0);
+		int i = 2;
+		for (String playerName:playerNames) {
+			row.getCell(i).setCellValue(playerName);
+			i++;
+		}
+		wsheet = wbook.getSheetAt(4);
+		row = wsheet.getRow(0);
+		i = 2;
+		for (String playerName:playerNames) {
+			row.getCell(i).setCellValue(playerName);
+			i++;
+		}
+		wbook.setForceFormulaRecalculation(true);
+		FileOutputStream fileOut = new FileOutputStream("ROA_Estado_" + guildName + ".xlsx");
+		wbook.write(fileOut);
+		fileOut.close();		
+	}
 	
 	public void execute(String[] args) throws IOException, InvalidFormatException, GeneralSecurityException {
 		Properties prop = readProperties();
 		String[] guildNames = prop.getProperty("guilds").split(",");
-		URL template = getClass().getResource("/templates/roastatstemplate.xlsx");
-	    File temp = File.createTempFile("ROA_Stats_template", ".xlsx");
-	    temp.deleteOnExit();
-		FileUtils.copyURLToFile(template, temp);		
-		Workbook wbook = WorkbookFactory.create(temp);
-	    Sheet wsheet = wbook.getSheetAt(0);                                                    // Does not work with getSheetAt0) -&gt; works with 1! strange
 	    Map<String, Player> playerCollection = new HashMap<String, Player>(); 
 		for(String oneGuildName:guildNames) {			
 			String guildURL = prop.getProperty(oneGuildName + ".url");
@@ -94,10 +155,13 @@ public class Stats {
 			Map<String, Player> guildPlayerCollection = SWGOH.retrievePlayers(document, oneGuildName);
 			SWGOH.readCollectionSWGOH(guildURL, guildPlayerCollection);
 			playerCollection.putAll(guildPlayerCollection);
+			creaExcelEstado(oneGuildName, guildPlayerCollection);
 		}			
 	    List<Player> players = new ArrayList<Player>(playerCollection.values());
 	    Collections.sort(players, Collections.reverseOrder());
 	    int rowNumber = 1;
+		Workbook wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roastatstemplate.xlsx"));
+	    Sheet wsheet = wbook.getSheetAt(0);
 		for (Player player : players) {
 			Row row = wsheet.getRow(rowNumber);
 			printPlayer(player, row);
@@ -118,3 +182,4 @@ public class Stats {
 		}
 	}
 }
+
