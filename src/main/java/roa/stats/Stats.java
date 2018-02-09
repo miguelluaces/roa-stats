@@ -139,8 +139,15 @@ public class Stats {
 			row.getCell(i).setCellValue(playerName);
 			i++;
 		}
+		wsheet = wbook.getSheetAt(5);
+		row = wsheet.getRow(0);
+		i = 2;
+		for (String playerName:playerNames) {
+			row.getCell(i).setCellValue(playerName);
+			i++;
+		}
 		wbook.setForceFormulaRecalculation(true);
-		FileOutputStream fileOut = new FileOutputStream("ROA_Estado_" + guildName + ".xlsx");
+		FileOutputStream fileOut = new FileOutputStream("Â_Estado_" + guildName + ".xlsx");
 		wbook.write(fileOut);
 		fileOut.close();		
 	}
@@ -168,7 +175,7 @@ public class Stats {
 			rowNumber++;
 		}
 		XSSFFormulaEvaluator.evaluateAllFormulaCells(wbook);
-		FileOutputStream fileOut = new FileOutputStream("ROA_Stats.xlsx");
+		FileOutputStream fileOut = new FileOutputStream("Â_Stats.xlsx");
 		wbook.write(fileOut);
 		fileOut.close();
 	}
