@@ -147,7 +147,7 @@ public class Stats {
 			i++;
 		}
 		wbook.setForceFormulaRecalculation(true);
-		FileOutputStream fileOut = new FileOutputStream("Â_Estado_" + guildName + ".xlsx");
+		FileOutputStream fileOut = new FileOutputStream("Estado_" + guildName + ".xlsx");
 		wbook.write(fileOut);
 		fileOut.close();		
 	}
@@ -175,7 +175,7 @@ public class Stats {
 			rowNumber++;
 		}
 		XSSFFormulaEvaluator.evaluateAllFormulaCells(wbook);
-		FileOutputStream fileOut = new FileOutputStream("Â_Stats.xlsx");
+		FileOutputStream fileOut = new FileOutputStream("Stats.xlsx");
 		wbook.write(fileOut);
 		fileOut.close();
 	}
