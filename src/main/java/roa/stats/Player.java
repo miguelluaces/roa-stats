@@ -90,7 +90,8 @@ public class Player implements Comparable<Player> {
 
 	public Double getPoints() {
 		return new Double(
-				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() + 
+				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
+				hasROLO() + hasHermitYoda() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + 
 				hasR1() + hasFenix() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
 				hasVader() + hasThrawn() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
 				hasStarck() + hasStarckPlus() + hasCazarrecompensas() + hasExecutrix() + hasExecutrixPlus() + 
@@ -115,9 +116,27 @@ public class Player implements Comparable<Player> {
 		}
 	}
 
+	public int hasROLO() {
+		Character c = characterCollection.get("Rebel Officer Leia Organa");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
 	public int hasGK() {
 		Character c = characterCollection.get("General Kenobi");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasGKPlus() {
+		Character c = characterCollection.get("General Kenobi");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 11)){
 			return 1;
 		} else {
 			return 0;
@@ -144,6 +163,33 @@ public class Player implements Comparable<Player> {
 
 	public int hasCHOLOPlus() {
 		Character c = characterCollection.get("Captain Han Solo");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasImperialProbeDroid() {
+		Character c = characterCollection.get("Imperial Probe Droid");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasWampa() {
+		Character c = characterCollection.get("Wampa");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasHermitYoda() {
+		Character c = characterCollection.get("Hermit Yoda");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
 			return 1;
 		} else {
@@ -193,6 +239,22 @@ public class Player implements Comparable<Player> {
 		return 0;
 	}
 
+	public int hasImperialSoldiers() {
+		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck"};
+		int imperialSoldiersNumber = 0;
+		for (String cName:imperialSoldiers) {
+			Character c = characterCollection.get(cName);
+			if ((c!=null)&&(c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+				imperialSoldiersNumber++;
+			}
+		}
+		if (imperialSoldiersNumber>=5) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	
 	public int hasFenix() {
 		
 		Character hera = characterCollection.get("Hera Syndulla");

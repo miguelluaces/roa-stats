@@ -53,11 +53,14 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasCLS());
 		row.getCell(i++).setCellValue(player.hasCLSPlus());
 		row.getCell(i++).setCellValue(player.hasGK());
+		row.getCell(i++).setCellValue(player.hasGKPlus());
 		row.getCell(i++).setCellValue(player.hasBB8());
 		row.getCell(i++).setCellValue(player.hasCHOLO());
 		row.getCell(i++).setCellValue(player.hasCHOLOPlus());
 		row.getCell(i++).setCellValue(player.hasHRScout());
 		row.getCell(i++).setCellValue(player.hasHRSoldier());
+		row.getCell(i++).setCellValue(player.hasROLO());
+		row.getCell(i++).setCellValue(player.hasHermitYoda());
 		row.getCell(i++).setCellValue(player.hasR1());
 		row.getCell(i++).setCellValue(player.hasFenix());
 		row.getCell(i++).setCellValue(player.hasHomeOne()+player.hasEndurance());
@@ -70,6 +73,9 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasSnowtrooperPlus());
 		row.getCell(i++).setCellValue(player.hasStarck());
 		row.getCell(i++).setCellValue(player.hasStarckPlus());
+		row.getCell(i++).setCellValue(player.hasImperialProbeDroid());
+		row.getCell(i++).setCellValue(player.hasWampa());
+		row.getCell(i++).setCellValue(player.hasImperialSoldiers());
 		row.getCell(i++).setCellValue(player.hasCazarrecompensas());
 		row.getCell(i++).setCellValue(player.hasExecutrix());
 		row.getCell(i++).setCellValue(player.hasExecutrixPlus());

@@ -135,6 +135,7 @@ public class CharacterTypes {
 		characterTypes.put("Scarif Rebel Pathfinder","Light");
 		characterTypes.put("Shoretrooper","Dark");
 		characterTypes.put("Sith Assassin","Dark");
+		characterTypes.put("Sith Marauder","Dark");
 		characterTypes.put("Sith Trooper","Dark");
 		characterTypes.put("Snowtrooper","Dark");
 		characterTypes.put("Stormtrooper","Dark");
