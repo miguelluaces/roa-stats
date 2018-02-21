@@ -90,7 +90,7 @@ public class Player implements Comparable<Player> {
 
 	public Double getPoints() {
 		return new Double(
-				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
+				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
 				hasROLO() + hasHermitYoda() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + 
 				hasR1() + hasFenix() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
 				hasVader() + hasThrawn() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
@@ -109,7 +109,7 @@ public class Player implements Comparable<Player> {
 
 	public int hasCLSPlus() {
 		Character c = characterCollection.get("Commander Luke Skywalker");
-		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 11)){
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
 			return 1;
 		} else {
 			return 0;
@@ -136,7 +136,7 @@ public class Player implements Comparable<Player> {
 
 	public int hasGKPlus() {
 		Character c = characterCollection.get("General Kenobi");
-		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 11)){
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
 			return 1;
 		} else {
 			return 0;
@@ -146,6 +146,24 @@ public class Player implements Comparable<Player> {
 	public int hasBB8() {
 		Character c = characterCollection.get("BB-8");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasRJT() {
+		Character c = characterCollection.get("Rey (Jedi Training)");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasRJTPlus() {
+		Character c = characterCollection.get("Rey (Jedi Training)");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
 			return 1;
 		} else {
 			return 0;

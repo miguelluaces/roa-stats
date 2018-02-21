@@ -55,6 +55,8 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasGK());
 		row.getCell(i++).setCellValue(player.hasGKPlus());
 		row.getCell(i++).setCellValue(player.hasBB8());
+		row.getCell(i++).setCellValue(player.hasRJT());
+		row.getCell(i++).setCellValue(player.hasRJTPlus());
 		row.getCell(i++).setCellValue(player.hasCHOLO());
 		row.getCell(i++).setCellValue(player.hasCHOLOPlus());
 		row.getCell(i++).setCellValue(player.hasHRScout());
