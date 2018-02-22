@@ -110,7 +110,7 @@ public class SWGOH {
 			for (CollectionSWGOH oneCollection:collections) {				
 				if (oneCollection.getCombat_type() == 1) {
 					String characterName = charactersSWGOH.get(oneCharacter).getName();
-					Character c = new Character(characterName, oneCollection.getLevel(), oneCollection.getRarity(), oneCollection.getGear_level(), CharacterTypes.get(characterName));
+					Character c = new Character(characterName, oneCollection.getLevel(), oneCollection.getRarity(), oneCollection.getGear_level(), CharacterTypes.get(characterName), oneCollection.getPower());
 					playerCollection.get(oneCollection.getPlayer()).getCharacterCollection().put(characterName, c);
 				} else {
 					String shipName = shipsSWGOH.get(oneCharacter).getName();
@@ -141,7 +141,7 @@ public class SWGOH {
 			if (!alfabetico) {
 				type = characterGroups.get(characterName);
 			}
-			Character character = new Character(characterName, characterLevel, numberOfStars, gear, type);
+			Character character = new Character(characterName, characterLevel, numberOfStars, gear, type, 0);
 			if (pjsRequeridos == null || pjsRequeridos.contains(characterName)) {
 				characterCollection.put(type + "-" + characterName, character);
 			}

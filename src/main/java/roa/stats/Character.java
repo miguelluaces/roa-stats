@@ -6,15 +6,17 @@ public class Character {
 	private int level;
 	private int stars;
 	private int gear;
+	private int power;
 	private String type;
 
-	public Character(String name, int level, int stars, int gear, String type) {
+	public Character(String name, int level, int stars, int gear, String type, int power) {
 		super();
 		this.name = name;
 		this.level = level;
 		this.stars = stars;
 		this.gear = gear;
 		this.type = type;
+		this.power = power;
 	}
 
 	public String getType() {
@@ -55,5 +57,13 @@ public class Character {
 
 	public void setGear(int gear) {
 		this.gear = gear;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public void setPower(int power) {
+		this.power = power;
 	}
 }

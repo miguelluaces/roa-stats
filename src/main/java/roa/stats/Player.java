@@ -1,5 +1,7 @@
 package roa.stats;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -91,10 +93,10 @@ public class Player implements Comparable<Player> {
 	public Double getPoints() {
 		return new Double(
 				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
-				hasROLO() + hasHermitYoda() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + 
-				hasR1() + hasFenix() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
+				hasROLO() + hasHermitYoda() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + hasImperialSoldiersPlus() +
+				hasR1() + hasFenix() + hasR1Plus() + hasFenixPlus() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
 				hasVader() + hasThrawn() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
-				hasStarck() + hasStarckPlus() + hasCazarrecompensas() + hasExecutrix() + hasExecutrixPlus() + 
+				hasStarck() + hasStarckPlus() + hasCazarrecompensas() + hasCazarrecompensasPlus() + hasExecutrix() + hasExecutrixPlus() + 
 				hasChimaera() + hasChimaeraPlus() + (1.0 / getArenaAvg()));
 	}
 	
@@ -257,6 +259,40 @@ public class Player implements Comparable<Player> {
 		return 0;
 	}
 
+	public int hasR1Plus() {
+		int power = 0;
+		Character baze = characterCollection.get("Baze Malbus");
+		if ((baze!=null) && (baze.getStars() >= 7) && (baze.getLevel() >= 85) && (baze.getGear() >= 8)){
+			power+=baze.getPower();
+			Character chirrut = characterCollection.get("Chirrut Îmwe");
+			if ((chirrut!=null) && (chirrut.getStars() >= 7) && (chirrut.getLevel() >= 85) && (chirrut.getGear() >= 8)){
+				power+=chirrut.getPower();
+				Character jyn = characterCollection.get("Jyn Erso");
+				if ((jyn!=null) && (jyn.getStars() >= 7) && (jyn.getLevel() >= 85) && (jyn.getGear() >= 8)){
+					power+=jyn.getPower();
+					String[] otherR1={"Bistan","Bodhi Rook","Cassian Andor","K-2SO","Pao","Scarif Rebel Pathfinder"};
+					int[] otherR1Power=new int[otherR1.length];
+					int otherR1Number = 0;
+					int otherR1Position = 0;
+					for (String cName:otherR1) {
+						Character c = characterCollection.get(cName);
+						otherR1Power[otherR1Position] = c.getPower();
+						if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+							otherR1Number++;							
+						}
+						otherR1Position++;
+					}
+					if (otherR1Number>=2) {
+						if((addLargestN(otherR1Power, 2)+power)>75000) {
+							return 1;
+						}
+					}
+				}
+			}			
+		}
+		return 0;
+	}
+
 	public int hasImperialSoldiers() {
 		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck"};
 		int imperialSoldiersNumber = 0;
@@ -271,8 +307,54 @@ public class Player implements Comparable<Player> {
 		}
 		return 0;
 	}
+
+	public int hasImperialSoldiersPlus() {
+		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck"};
+		int imperialSoldiersNumber = 0;
+		int[] imperialSoldiersPower=new int[imperialSoldiers.length];
+		int imperialSoldiersPosition = 0;
+		for (String cName:imperialSoldiers) {
+			Character c = characterCollection.get(cName);			
+			if ((c!=null)&&(c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+				imperialSoldiersNumber++;
+				imperialSoldiersPower[imperialSoldiersPosition] = c.getPower();
+			}
+			imperialSoldiersPosition++;
+		}
+		if (imperialSoldiersNumber>=5) {
+			if((addLargestN(imperialSoldiersPower, 5))>75000) {
+				return 1;
+			}
+		}
+		return 0;
+	}
 	
-	
+	public int hasFenixPlus() {
+		int power = 0;
+		Character hera = characterCollection.get("Hera Syndulla");
+		if ((hera!=null) && (hera.getStars() >= 7) && (hera.getLevel() >= 85) && (hera.getGear() >= 8)){
+			power+=hera.getPower();
+			String[] otherFenix={"Chopper", "Ezra Bridger", "Garazeb \"Zeb\" Orrelios","Kanan Jarrus","Sabine Wren"};
+			int[] otherFenixPower=new int[otherFenix.length];
+			int otherFenixNumber = 0;
+			int otherFenixPosition = 0;
+			for (String cName:otherFenix) {
+				Character c = characterCollection.get(cName);
+				otherFenixPower[otherFenixPosition] = c.getPower();
+				if ((c!=null)&&(c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+					otherFenixNumber++;
+				}
+				otherFenixPosition++;				
+			}
+			if (otherFenixNumber>=4) {
+				if((addLargestN(otherFenixPower, 4)+power)>75000) {
+					return 1;
+				}
+			}
+		}
+		return 0;
+	}
+
 	public int hasFenix() {
 		
 		Character hera = characterCollection.get("Hera Syndulla");
@@ -291,7 +373,7 @@ public class Player implements Comparable<Player> {
 		}
 		return 0;
 	}
-
+	
 	public int hasHomeOne() {
 		Ship s = shipCollection.get("Home One");
 		if ((s!=null) && (s.getStars() >= 6) && (s.getLevel() >= 85)){
@@ -398,6 +480,27 @@ public class Player implements Comparable<Player> {
 		return 0;
 	}
 
+	public int hasCazarrecompensasPlus() {
+		String[] cazarecompensas={"Boba Fett", "Cad Bane", "Dengar", "Greedo", "Zam Wesell", "IG-88"};
+		int cazarecompensasNumber = 0;
+		int[] cazarecompensasPower=new int[cazarecompensas.length];
+		int cazarecompensasPosition = 0;
+		for (String cName:cazarecompensas) {
+			Character c = characterCollection.get(cName);			
+			if ((c!=null)&&(c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){				
+				cazarecompensasNumber++;
+				cazarecompensasPower[cazarecompensasPosition] = c.getPower();
+			}
+			cazarecompensasPosition++;
+		}
+		if (cazarecompensasNumber>=5) {
+			if((addLargestN(cazarecompensasPower, 5))>75000) {
+				return 1;
+			}
+		}
+		return 0;
+	}
+
 	public int hasStarck() {
 		Character c = characterCollection.get("Colonel Starck");
 		if ((c!=null) && (c.getStars() >= 5)){
@@ -451,4 +554,13 @@ public class Player implements Comparable<Player> {
 			return 0;
 		}
 	}
+
+	public static int addLargestN(int values[], int n){
+		int result = 0;
+		Arrays.sort(values);
+		for (int i = 1; i<=n; i++){
+			result+=values[values.length - i];
+		}
+	    return result; 
+	}	
 }
