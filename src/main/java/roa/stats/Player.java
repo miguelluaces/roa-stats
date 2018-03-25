@@ -92,10 +92,10 @@ public class Player implements Comparable<Player> {
 
 	public Double getPoints() {
 		return new Double(
-				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
+				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasBB8Plus() + hasR2D2() + hasR2D2Plus() + hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
 				hasROLO() + hasHermitYoda() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + hasImperialSoldiersPlus() +
 				hasR1() + hasFenix() + hasR1Plus() + hasFenixPlus() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
-				hasVader() + hasThrawn() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
+				hasPalpa() + hasPalpaPlus() + hasVader() + hasVaderPlus() + hasThrawn() + hasThrawnPlus() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
 				hasStarck() + hasStarckPlus() + hasCazarrecompensas() + hasCazarrecompensasPlus() + hasExecutrix() + hasExecutrixPlus() + 
 				hasChimaera() + hasChimaeraPlus() + (1.0 / getArenaAvg()));
 	}
@@ -154,6 +154,33 @@ public class Player implements Comparable<Player> {
 		}
 	}
 
+	public int hasBB8Plus() {
+		Character c = characterCollection.get("BB-8");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	public int hasR2D2() {
+		Character c = characterCollection.get("R2-D2");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasR2D2Plus() {
+		Character c = characterCollection.get("R2-D2");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
 	public int hasRJT() {
 		Character c = characterCollection.get("Rey (Jedi Training)");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
@@ -412,19 +439,55 @@ public class Player implements Comparable<Player> {
 			return 0;
 		}
 	}
-	
-	public int hasVader() {
-		Character c = characterCollection.get("Darth Vader");
-		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 11)){
+
+	public int hasPalpa() {
+		Character c = characterCollection.get("Emperor Palpatine");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 
+	public int hasPalpaPlus() {
+		Character c = characterCollection.get("Emperor Palpatine");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	public int hasVader() {
+		Character c = characterCollection.get("Darth Vader");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasVaderPlus() {
+		Character c = characterCollection.get("Darth Vader");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
 	public int hasThrawn() {
 		Character c = characterCollection.get("Grand Admiral Thrawn");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasThrawnPlus() {
+		Character c = characterCollection.get("Grand Admiral Thrawn");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
 			return 1;
 		} else {
 			return 0;

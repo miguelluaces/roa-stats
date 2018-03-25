@@ -48,6 +48,9 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasGK());
 		row.getCell(i++).setCellValue(player.hasGKPlus());
 		row.getCell(i++).setCellValue(player.hasBB8());
+		row.getCell(i++).setCellValue(player.hasBB8Plus());
+		row.getCell(i++).setCellValue(player.hasR2D2());
+		row.getCell(i++).setCellValue(player.hasR2D2Plus());
 		row.getCell(i++).setCellValue(player.hasRJT());
 		row.getCell(i++).setCellValue(player.hasRJTPlus());
 		row.getCell(i++).setCellValue(player.hasCHOLO());
@@ -62,8 +65,12 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasFenixPlus());
 		row.getCell(i++).setCellValue(player.hasHomeOne()+player.hasEndurance());
 		row.getCell(i++).setCellValue(player.hasHomeOnePlus()+player.hasEndurancePlus());
+		row.getCell(i++).setCellValue(player.hasPalpa());
+		row.getCell(i++).setCellValue(player.hasPalpaPlus());
 		row.getCell(i++).setCellValue(player.hasVader());
+		row.getCell(i++).setCellValue(player.hasVaderPlus());
 		row.getCell(i++).setCellValue(player.hasThrawn());
+		row.getCell(i++).setCellValue(player.hasThrawnPlus());
 		row.getCell(i++).setCellValue(player.hasVeers());
 		row.getCell(i++).setCellValue(player.hasVeersPlus());
 		row.getCell(i++).setCellValue(player.hasSnowtrooper());
