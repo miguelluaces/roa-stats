@@ -340,9 +340,12 @@ public class Player implements Comparable<Player> {
 			int otherFenixPosition = 0;
 			for (String cName:otherFenix) {
 				Character c = characterCollection.get(cName);
-				otherFenixPower[otherFenixPosition] = c.getPower();
+				
 				if ((c!=null)&&(c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+					otherFenixPower[otherFenixPosition] = c.getPower();
 					otherFenixNumber++;
+				} else {
+					otherFenixPower[otherFenixPosition] = 0;
 				}
 				otherFenixPosition++;				
 			}

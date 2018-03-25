@@ -1,10 +1,8 @@
 package roa.stats;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -38,10 +35,6 @@ public class Stats {
 			prop.load(input);
 			return prop;
 		}
-	}
-	
-	private void printHeader() {
-		System.out.println("Jugador, PG, Arena, Gremio, CLS, Chan 5*, ERH 6*, SRH 5*, R1, Fénix, Home One, Endurance, Vader, G. Veers 5*, S.Nieves, Cazarrecompensas, Executrix 6*, Chimera 5*");
 	}
 	
 	public static void printPlayer(Player player, Row row) {
@@ -182,12 +175,30 @@ public class Stats {
 		Workbook wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roastatstemplate.xlsx"));
 	    Sheet wsheet = wbook.getSheetAt(0);
 		for (Player player : players) {
-			Row row = wsheet.getRow(rowNumber);
-			printPlayer(player, row);
-			rowNumber++;
+			String playerGuildName = player.getGuildName();
+			if (!playerGuildName.equals("A1") && !playerGuildName.equals("A2") && !playerGuildName.equals("B") && !playerGuildName.equals("C")) {
+				Row row = wsheet.getRow(rowNumber);
+				printPlayer(player, row);
+				rowNumber++;
+			}
 		}
 		XSSFFormulaEvaluator.evaluateAllFormulaCells(wbook);
-		FileOutputStream fileOut = new FileOutputStream("Stats.xlsx");
+		FileOutputStream fileOut = new FileOutputStream("GremioZero.xlsx");
+		wbook.write(fileOut);
+		fileOut.close();
+	    rowNumber = 1;
+		wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roastatstemplate.xlsx"));
+	    wsheet = wbook.getSheetAt(0);
+		for (Player player : players) {
+			String playerGuildName = player.getGuildName();
+			if (playerGuildName.equals("A1") || playerGuildName.equals("A2") || playerGuildName.equals("B") || playerGuildName.equals("C")) {
+				Row row = wsheet.getRow(rowNumber);
+				printPlayer(player, row);
+				rowNumber++;
+			}
+		}
+		XSSFFormulaEvaluator.evaluateAllFormulaCells(wbook);
+		fileOut = new FileOutputStream("Stats.xlsx");
 		wbook.write(fileOut);
 		fileOut.close();
 	}

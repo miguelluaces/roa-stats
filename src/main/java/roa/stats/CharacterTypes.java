@@ -47,6 +47,8 @@ public class CharacterTypes {
 		characterTypes.put("Darth Maul","Dark");
 		characterTypes.put("Darth Nihilus","Dark");
 		characterTypes.put("Darth Sidious","Dark");
+		characterTypes.put("Darth Sion","Dark");
+		characterTypes.put("Darth Traya","Dark");
 		characterTypes.put("Darth Vader","Dark");
 		characterTypes.put("Dathcha","Light");
 		characterTypes.put("Death Trooper","Dark");
