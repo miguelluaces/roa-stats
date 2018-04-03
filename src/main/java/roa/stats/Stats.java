@@ -183,29 +183,12 @@ public class Stats {
 	    Sheet wsheet = wbook.getSheetAt(0);
 		for (Player player : players) {
 			String playerGuildName = player.getGuildName();
-			if (!playerGuildName.equals("A1") && !playerGuildName.equals("A2") && !playerGuildName.equals("B") && !playerGuildName.equals("C")) {
-				Row row = wsheet.getRow(rowNumber);
-				printPlayer(player, row);
-				rowNumber++;
-			}
+			Row row = wsheet.getRow(rowNumber);
+			printPlayer(player, row);
+			rowNumber++;
 		}
 		XSSFFormulaEvaluator.evaluateAllFormulaCells(wbook);
-		FileOutputStream fileOut = new FileOutputStream("GremioZero.xlsx");
-		wbook.write(fileOut);
-		fileOut.close();
-	    rowNumber = 1;
-		wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roastatstemplate.xlsx"));
-	    wsheet = wbook.getSheetAt(0);
-		for (Player player : players) {
-			String playerGuildName = player.getGuildName();
-			if (playerGuildName.equals("A1") || playerGuildName.equals("A2") || playerGuildName.equals("B") || playerGuildName.equals("C")) {
-				Row row = wsheet.getRow(rowNumber);
-				printPlayer(player, row);
-				rowNumber++;
-			}
-		}
-		XSSFFormulaEvaluator.evaluateAllFormulaCells(wbook);
-		fileOut = new FileOutputStream("Stats.xlsx");
+		FileOutputStream fileOut = new FileOutputStream("Stats.xlsx");
 		wbook.write(fileOut);
 		fileOut.close();
 	}
