@@ -182,7 +182,6 @@ public class Stats {
 		Workbook wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roastatstemplate.xlsx"));
 	    Sheet wsheet = wbook.getSheetAt(0);
 		for (Player player : players) {
-			String playerGuildName = player.getGuildName();
 			Row row = wsheet.getRow(rowNumber);
 			printPlayer(player, row);
 			rowNumber++;

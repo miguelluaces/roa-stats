@@ -92,11 +92,12 @@ public class Player implements Comparable<Player> {
 
 	public Double getPoints() {
 		return new Double(
-				hasCLS() + hasCLSPlus() + hasGK() + hasBB8() + hasBB8Plus() + hasR2D2() + hasR2D2Plus() + hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRScout() + hasHRSoldier() +
-				hasROLO() + hasHermitYoda() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + hasImperialSoldiersPlus() +
-				hasR1() + hasFenix() + hasR1Plus() + hasFenixPlus() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
+				hasCLS() + hasCLSPlus() + hasGK() + hasGKPlus() + hasBB8() + hasBB8Plus() + hasR2D2() + hasR2D2Plus() + 
+				hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRSoldier() + hasHRScout() + 
+				hasROLO() + hasHermitYoda() +  hasR1() + hasR1Plus() + hasFenix() + hasFenixPlus() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
 				hasPalpa() + hasPalpaPlus() + hasVader() + hasVaderPlus() + hasThrawn() + hasThrawnPlus() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
-				hasStarck() + hasStarckPlus() + hasCazarrecompensas() + hasCazarrecompensasPlus() + hasExecutrix() + hasExecutrixPlus() + 
+				hasStarck() + hasStarckPlus() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + hasImperialSoldiersPlus() +
+				hasCazarrecompensas() + hasCazarrecompensasPlus() + hasExecutrix() + hasExecutrixPlus() + 
 				hasChimaera() + hasChimaeraPlus() + (1.0 / getArenaAvg()));
 	}
 	
