@@ -3,6 +3,7 @@ package roa.stats.swgoh;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import roa.stats.Character;
 import roa.stats.CharacterTypes;
 import roa.stats.Player;
+import roa.stats.PlayerZeta;
 import roa.stats.Ship;
 
 public class SWGOH {
@@ -66,6 +68,28 @@ public class SWGOH {
 			playerCollection.put(memberName, player);
 		}
 		return playerCollection;
+	}
+	
+	public static List<PlayerZeta> readPlayerZetas(Document zetasDoc) {
+		List<PlayerZeta> result = new ArrayList<PlayerZeta>();
+		Element table = zetasDoc.select("table").get(0);
+		Elements rows = table.select("tr");
+		for (int i = 1; i < rows.size(); i++) {
+			Element member = rows.get(i).select("td").get(0).select("a").get(0);
+			String memberName = member.text();
+			Elements characterElements = rows.get(i).select("td").get(2).select(".guild-member-zeta");
+			for (Element characterElement:characterElements) {
+				Element characterNameElement = characterElement.select(".char-portrait-small").get(0);
+				String characterName = characterNameElement.attr("title");
+				Elements zetaElements = characterElement.select(".guild-member-zeta-ability");
+				for (Element zetaElement:zetaElements) {
+					String zetaName = zetaElement.attr("title");
+					PlayerZeta playerZeta = new PlayerZeta(memberName, characterName, zetaName); 
+					result.add(playerZeta);
+				}
+			}
+		}		
+		return result;		
 	}
 	
 	public static Map<String, CharacterSWGOH> readCharactersSWGOH() throws JsonMappingException, JsonParseException, IOException{

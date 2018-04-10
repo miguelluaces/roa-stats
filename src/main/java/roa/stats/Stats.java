@@ -89,7 +89,7 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasChimaeraPlus());
 	}
 	
-	private void creaExcelEstado(String guildName, Map<String, Player> guildPlayerCollection) throws IOException, InvalidFormatException {
+	private void creaExcelEstado(String guildName, Map<String, Player> guildPlayerCollection, List<PlayerZeta> playerZetas) throws IOException, InvalidFormatException {
 		Workbook wbook = WorkbookFactory.create(getClass().getResourceAsStream("/templates/roaestadotemplate.xlsx"));
 		Sheet wsheet = wbook.getSheetAt(0);
 		List<Player> players = new ArrayList<Player>(guildPlayerCollection.values());
@@ -120,6 +120,16 @@ public class Stats {
 			}
 		}
 		wsheet = wbook.getSheetAt(1);
+		int zetaRow = 1;
+		for (PlayerZeta playerZeta : playerZetas) {
+			int i = 0;
+			Row row = wsheet.getRow(zetaRow);
+			row.getCell(i++).setCellValue(playerZeta.getPlayerName());
+			row.getCell(i++).setCellValue(playerZeta.getCharacterName());
+			row.getCell(i++).setCellValue(playerZeta.getZetaName());
+			zetaRow++;
+		}
+		wsheet = wbook.getSheetAt(2);
 		rowNumber = 1;
 		for (String characterName:CharacterTypes.getCharacterNames()) {
 			Row row = wsheet.getRow(rowNumber);
@@ -127,7 +137,7 @@ public class Stats {
 			row.getCell(1).setCellValue(CharacterTypes.get(characterName));
 			rowNumber++;
 		}
-		wsheet = wbook.getSheetAt(2);
+		wsheet = wbook.getSheetAt(3);
 		rowNumber = 1;
 		for (String shipName:ShipTypes.getShipNames()) {
 			Row row = wsheet.getRow(rowNumber);
@@ -137,21 +147,21 @@ public class Stats {
 		}
 		List<String> playerNames = new ArrayList<String>(guildPlayerCollection.keySet());
 		Collections.sort(playerNames, ASCIICaseInsensitiveComparator.CASE_INSENSITIVE_ORDER);
-		wsheet = wbook.getSheetAt(3);
+		wsheet = wbook.getSheetAt(4);
 		Row row = wsheet.getRow(0);
 		int i = 2;
 		for (String playerName:playerNames) {
 			row.getCell(i).setCellValue(playerName);
 			i++;
 		}
-		wsheet = wbook.getSheetAt(4);
+		wsheet = wbook.getSheetAt(5);
 		row = wsheet.getRow(0);
 		i = 2;
 		for (String playerName:playerNames) {
 			row.getCell(i).setCellValue(playerName);
 			i++;
 		}
-		wsheet = wbook.getSheetAt(5);
+		wsheet = wbook.getSheetAt(6);
 		row = wsheet.getRow(0);
 		i = 2;
 		for (String playerName:playerNames) {
@@ -172,9 +182,11 @@ public class Stats {
 			String guildURL = prop.getProperty(oneGuildName + ".url");
 			Document document = Jsoup.connect(guildURL).userAgent("Mozilla/5.0").timeout(100000).get();
 			Map<String, Player> guildPlayerCollection = SWGOH.retrievePlayers(document, oneGuildName);
+			Document zetasDocument = Jsoup.connect(guildURL.concat("zetas/")).userAgent("Mozilla/5.0").timeout(100000).get();
+			List<PlayerZeta> playerZetas = SWGOH.readPlayerZetas(zetasDocument);
 			SWGOH.readCollectionSWGOH(guildURL, guildPlayerCollection);
 			playerCollection.putAll(guildPlayerCollection);
-			creaExcelEstado(oneGuildName, guildPlayerCollection);
+			creaExcelEstado(oneGuildName, guildPlayerCollection, playerZetas);
 		}			
 	    List<Player> players = new ArrayList<Player>(playerCollection.values());
 	    Collections.sort(players, Collections.reverseOrder());
