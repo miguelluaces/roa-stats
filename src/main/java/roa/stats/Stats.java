@@ -122,7 +122,7 @@ public class Stats {
 		wsheet = wbook.getSheetAt(1);
 		int zetaRow = 1;
 		for (PlayerZeta playerZeta : playerZetas) {
-			int i = 0;
+			int i = 1;
 			Row row = wsheet.getRow(zetaRow);
 			row.getCell(i++).setCellValue(playerZeta.getPlayerName());
 			row.getCell(i++).setCellValue(playerZeta.getCharacterName());
@@ -163,10 +163,24 @@ public class Stats {
 		}
 		wsheet = wbook.getSheetAt(6);
 		row = wsheet.getRow(0);
+		i = 3;
+		for (String playerName:playerNames) {
+			row.getCell(i).setCellValue(playerName);
+			i+=3;
+		}
+		wsheet = wbook.getSheetAt(7);
+		row = wsheet.getRow(0);
 		i = 2;
 		for (String playerName:playerNames) {
 			row.getCell(i).setCellValue(playerName);
 			i++;
+		}
+		wsheet = wbook.getSheetAt(8);
+		rowNumber = 1;
+		for (String playerName:playerNames) {
+			row = wsheet.getRow(rowNumber);
+			row.getCell(1).setCellValue(playerName);
+			rowNumber++;
 		}
 		wbook.setForceFormulaRecalculation(true);
 		FileOutputStream fileOut = new FileOutputStream("Estado_" + guildName + ".xlsx");
