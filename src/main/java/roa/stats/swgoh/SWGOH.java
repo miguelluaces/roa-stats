@@ -131,15 +131,18 @@ public class SWGOH {
 		Map<String, Map<String, CollectionSWGOH>> result = new HashMap<String, Map<String, CollectionSWGOH>>();
 		for (String oneCharacter : rawMap.keySet()) {			
 			CollectionSWGOH[] collections = rawMap.get(oneCharacter);
-			for (CollectionSWGOH oneCollection:collections) {				
-				if (oneCollection.getCombat_type() == 1) {
-					String characterName = charactersSWGOH.get(oneCharacter).getName();
-					Character c = new Character(characterName, oneCollection.getLevel(), oneCollection.getRarity(), oneCollection.getGear_level(), CharacterTypes.get(characterName), oneCollection.getPower());
-					playerCollection.get(oneCollection.getPlayer()).getCharacterCollection().put(characterName, c);
-				} else {
-					String shipName = shipsSWGOH.get(oneCharacter).getName();
-					Ship s = new Ship(shipName, oneCollection.getLevel(), oneCollection.getRarity());
-					playerCollection.get(oneCollection.getPlayer()).getShipCollection().put(shipName, s);
+			for (CollectionSWGOH oneCollection:collections) {
+				Player player = playerCollection.get(oneCollection.getPlayer());
+				if (player != null) {
+					if (oneCollection.getCombat_type() == 1) {
+						String characterName = charactersSWGOH.get(oneCharacter).getName();
+						Character c = new Character(characterName, oneCollection.getLevel(), oneCollection.getRarity(), oneCollection.getGear_level(), CharacterTypes.get(characterName), oneCollection.getPower());
+						player.getCharacterCollection().put(characterName, c);
+					} else {
+						String shipName = shipsSWGOH.get(oneCharacter).getName();
+						Ship s = new Ship(shipName, oneCollection.getLevel(), oneCollection.getRarity());
+						playerCollection.get(oneCollection.getPlayer()).getShipCollection().put(shipName, s);
+					}
 				}
 			}
 		}
