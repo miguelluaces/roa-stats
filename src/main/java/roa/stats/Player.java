@@ -304,9 +304,13 @@ public class Player implements Comparable<Player> {
 					int otherR1Position = 0;
 					for (String cName:otherR1) {
 						Character c = characterCollection.get(cName);
-						otherR1Power[otherR1Position] = c.getPower();
-						if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
-							otherR1Number++;							
+						if (c!=null) {
+							otherR1Power[otherR1Position] = c.getPower();
+							if ((c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){							
+								otherR1Number++;
+							}
+						} else {
+							otherR1Power[otherR1Position] = 0;
 						}
 						otherR1Position++;
 					}

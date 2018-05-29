@@ -26,6 +26,7 @@ public class CharacterTypes {
 		characterTypes.put("Bistan","Light");
 		characterTypes.put("Boba Fett","Dark");
 		characterTypes.put("Bodhi Rook","Light");
+		characterTypes.put("Bossk","Dark");
 		characterTypes.put("Cad Bane","Dark");
 		characterTypes.put("Captain Han Solo","Light");
 		characterTypes.put("Captain Phasma","Dark");
@@ -123,6 +124,7 @@ public class CharacterTypes {
 		characterTypes.put("Poe Dameron","Light");
 		characterTypes.put("Poggle the Lesser","Dark");
 		characterTypes.put("Princess Leia","Light");
+		characterTypes.put("Qi'ra","Light");
 		characterTypes.put("Qui-Gon Jinn","Light");
 		characterTypes.put("R2-D2","Light");
 		characterTypes.put("Rebel Officer Leia Organa","Light");
@@ -150,11 +152,13 @@ public class CharacterTypes {
 		characterTypes.put("Tusken Shaman","Dark");
 		characterTypes.put("Ugnaught","Light");
 		characterTypes.put("URoRRuR'R'R","Dark");
+		characterTypes.put("Vandor Chewbacca","Light");
 		characterTypes.put("Veteran Smuggler Chewbacca","Light");
 		characterTypes.put("Veteran Smuggler Han Solo","Light");
 		characterTypes.put("Wampa","Dark");
 		characterTypes.put("Wedge Antilles","Light");
 		characterTypes.put("Wicket","Light");
+		characterTypes.put("Young Han Solo","Light");
 		characterTypes.put("Zam Wesell","Dark");
 		return characterTypes;
 	}
