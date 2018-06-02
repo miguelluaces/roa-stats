@@ -57,6 +57,7 @@ public class CharacterTypes {
 		characterTypes.put("Director Krennic","Dark");
 		characterTypes.put("Eeth Koth","Light");
 		characterTypes.put("Emperor Palpatine","Dark");
+		characterTypes.put("Enfys Nest","Light"); 
 		characterTypes.put("Ewok Elder","Light");
 		characterTypes.put("Ewok Scout","Light");
 		characterTypes.put("Ezra Bridger","Light");
