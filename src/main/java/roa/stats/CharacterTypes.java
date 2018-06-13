@@ -103,6 +103,7 @@ public class CharacterTypes {
 		characterTypes.put("Kit Fisto","Light");
 		characterTypes.put("Kylo Ren","Dark");
 		characterTypes.put("Kylo Ren (Unmasked)","Dark");
+		characterTypes.put("L3-37","Light");
 		characterTypes.put("Lando Calrissian","Light");
 		characterTypes.put("Lobot","Light");
 		characterTypes.put("Logray","Light");
@@ -160,6 +161,7 @@ public class CharacterTypes {
 		characterTypes.put("Wedge Antilles","Light");
 		characterTypes.put("Wicket","Light");
 		characterTypes.put("Young Han Solo","Light");
+		characterTypes.put("Young Lando Calrissian","Light");
 		characterTypes.put("Zam Wesell","Dark");
 		return characterTypes;
 	}

@@ -30,6 +30,7 @@ public class ShipTypes {
 		shipTypes.put("Imperial TIE Fighter","Dark");
 		shipTypes.put("Jedi Consular's Starfighter","Light");
 		shipTypes.put("Kylo Ren's Command Shuttle","Dark");
+		shipTypes.put("Lando's Millennium Falcon","Light");
 		shipTypes.put("Millennium Falcon (Ep VII)","Light");
 		shipTypes.put("Phantom II","Light");
 		shipTypes.put("Plo Koon's Jedi Starfighter","Light");
