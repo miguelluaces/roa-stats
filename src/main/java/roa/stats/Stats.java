@@ -58,6 +58,7 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasHRScout());
 		row.getCell(i++).setCellValue(player.hasHRSoldier());
 		row.getCell(i++).setCellValue(player.hasROLO());
+		row.getCell(i++).setCellValue(player.hasROLOPlus());
 		row.getCell(i++).setCellValue(player.hasHermitYoda());
 		row.getCell(i++).setCellValue(player.hasR1());
 		row.getCell(i++).setCellValue(player.hasR1Plus());
@@ -71,6 +72,10 @@ public class Stats {
 		row.getCell(i++).setCellValue(player.hasVaderPlus());
 		row.getCell(i++).setCellValue(player.hasThrawn());
 		row.getCell(i++).setCellValue(player.hasThrawnPlus());
+		row.getCell(i++).setCellValue(player.hasSion());
+		row.getCell(i++).setCellValue(player.hasSionPlus());
+		row.getCell(i++).setCellValue(player.hasTraya());
+		row.getCell(i++).setCellValue(player.hasTrayaPlus());
 		row.getCell(i++).setCellValue(player.hasVeers());
 		row.getCell(i++).setCellValue(player.hasVeersPlus());
 		row.getCell(i++).setCellValue(player.hasSnowtrooper());

@@ -94,8 +94,9 @@ public class Player implements Comparable<Player> {
 		return new Double(
 				hasCLS() + hasCLSPlus() + hasGK() + hasGKPlus() + hasBB8() + hasBB8Plus() + hasR2D2() + hasR2D2Plus() + 
 				hasRJT() + hasRJTPlus() + hasCHOLO() + hasCHOLOPlus() + hasHRSoldier() + hasHRScout() + 
-				hasROLO() + hasHermitYoda() +  hasR1() + hasR1Plus() + hasFenix() + hasFenixPlus() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
-				hasPalpa() + hasPalpaPlus() + hasVader() + hasVaderPlus() + hasThrawn() + hasThrawnPlus() + hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
+				hasROLO() + hasROLOPlus() + hasHermitYoda() +  hasR1() + hasR1Plus() + hasFenix() + hasFenixPlus() + hasHomeOne() + hasEndurance() + hasHomeOnePlus() + hasEndurancePlus() + 
+				hasPalpa() + hasPalpaPlus() + hasVader() + hasVaderPlus() + hasThrawn() + hasThrawnPlus() + hasSion() + hasSionPlus() + hasTraya() + hasTrayaPlus() + 
+				hasVeers() + hasVeersPlus() + hasSnowtrooper() + hasSnowtrooperPlus() + 
 				hasStarck() + hasStarckPlus() + hasImperialProbeDroid() + hasWampa() + hasImperialSoldiers() + hasImperialSoldiersPlus() +
 				hasCazarrecompensas() + hasCazarrecompensasPlus() + hasExecutrix() + hasExecutrixPlus() + 
 				hasChimaera() + hasChimaeraPlus() + (1.0 / getArenaAvg()));
@@ -128,6 +129,15 @@ public class Player implements Comparable<Player> {
 		}
 	}
 
+	public int hasROLOPlus() {
+		Character c = characterCollection.get("Rebel Officer Leia Organa");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
 	public int hasGK() {
 		Character c = characterCollection.get("General Kenobi");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
@@ -481,6 +491,42 @@ public class Player implements Comparable<Player> {
 		}
 	}
 	
+	public int hasSion() {
+		Character c = characterCollection.get("Darth Sion");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasSionPlus() {
+		Character c = characterCollection.get("Darth Sion");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasTraya() {
+		Character c = characterCollection.get("Darth Traya");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public int hasTrayaPlus() {
+		Character c = characterCollection.get("Darth Traya");
+		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 12)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
 	public int hasThrawn() {
 		Character c = characterCollection.get("Grand Admiral Thrawn");
 		if ((c!=null) && (c.getStars() >= 7) && (c.getLevel() >= 85) && (c.getGear() >= 8)){
