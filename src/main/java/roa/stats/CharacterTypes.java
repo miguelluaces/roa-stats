@@ -129,6 +129,7 @@ public class CharacterTypes {
 		characterTypes.put("Qi'ra","Light");
 		characterTypes.put("Qui-Gon Jinn","Light");
 		characterTypes.put("R2-D2","Light");
+		characterTypes.put("Range Trooper","Dark");
 		characterTypes.put("Rebel Officer Leia Organa","Light");
 		characterTypes.put("Resistance Pilot","Light");
 		characterTypes.put("Resistance Trooper","Light");
