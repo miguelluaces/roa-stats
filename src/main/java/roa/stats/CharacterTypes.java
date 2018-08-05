@@ -19,6 +19,7 @@ public class CharacterTypes {
 		characterTypes.put("Amilyn Holdo","Light");
 		characterTypes.put("Asajj Ventress","Dark");
 		characterTypes.put("B2 Super Battle Droid","Dark");
+		characterTypes.put("Bastila Shan","Light");
 		characterTypes.put("Barriss Offee","Light");
 		characterTypes.put("Baze Malbus","Light");
 		characterTypes.put("BB-8","Light");
@@ -97,6 +98,7 @@ public class CharacterTypes {
 		characterTypes.put("Jedi Consular","Light");
 		characterTypes.put("Jedi Knight Anakin","Light");
 		characterTypes.put("Jedi Knight Guardian","Light");
+		characterTypes.put("Jolee Bindo","Light");
 		characterTypes.put("Jyn Erso","Light");
 		characterTypes.put("K-2SO","Light");
 		characterTypes.put("Kanan Jarrus","Light");
@@ -111,6 +113,7 @@ public class CharacterTypes {
 		characterTypes.put("Luminara Unduli","Light");
 		characterTypes.put("Mace Windu","Light");
 		characterTypes.put("Magmatrooper","Dark");
+		characterTypes.put("Mission Vao","Light");
 		characterTypes.put("Mob Enforcer","Dark");
 		characterTypes.put("Mother Talzin","Dark");
 		characterTypes.put("Nightsister Acolyte","Dark");
@@ -148,6 +151,7 @@ public class CharacterTypes {
 		characterTypes.put("Stormtrooper","Dark");
 		characterTypes.put("Stormtrooper Han","Light");
 		characterTypes.put("Sun Fac","Dark");
+		characterTypes.put("T3-M4","Light");
 		characterTypes.put("Talia","Dark");
 		characterTypes.put("Teebo","Light");
 		characterTypes.put("TIE Fighter Pilot","Dark");
@@ -164,6 +168,7 @@ public class CharacterTypes {
 		characterTypes.put("Young Han Solo","Light");
 		characterTypes.put("Young Lando Calrissian","Light");
 		characterTypes.put("Zam Wesell","Dark");
+		characterTypes.put("Zaalbar","Light");
 		return characterTypes;
 	}
 

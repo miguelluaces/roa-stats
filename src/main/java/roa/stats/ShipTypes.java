@@ -39,6 +39,7 @@ public class ShipTypes {
 		shipTypes.put("Rex's ARC-170","Light");
 		shipTypes.put("Scimitar","Dark");
 		shipTypes.put("Slave I","Dark");
+		shipTypes.put("Sith Fighter","Dark");
 		shipTypes.put("Sun Fac's Geonosian Starfighter","Dark");
 		shipTypes.put("TIE Advanced x1","Dark");
 		shipTypes.put("TIE Reaper","Dark");

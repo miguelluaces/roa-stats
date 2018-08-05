@@ -336,7 +336,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public int hasImperialSoldiers() {
-		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck"};
+		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck", "Range Trooper"};
 		int imperialSoldiersNumber = 0;
 		for (String cName:imperialSoldiers) {
 			Character c = characterCollection.get(cName);
@@ -351,7 +351,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public int hasImperialSoldiersPlus() {
-		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck"};
+		String[] imperialSoldiers={"General Veers", "Snowtrooper", "Stormtrooper", "Shoretrooper", "Magmatrooper", "Death Trooper", "Colonel Starck", "Range Trooper"};
 		int imperialSoldiersNumber = 0;
 		int[] imperialSoldiersPower=new int[imperialSoldiers.length];
 		int imperialSoldiersPosition = 0;
@@ -583,7 +583,7 @@ public class Player implements Comparable<Player> {
 	
 	public int hasCazarrecompensas() {
 
-		String[] cazarecompensas={"Boba Fett", "Cad Bane", "Dengar", "Greedo", "Zam Wesell", "IG-88"};
+		String[] cazarecompensas={"Boba Fett", "Cad Bane", "Dengar", "Greedo", "Zam Wesell", "IG-88", "Bossk"};
 		int cazarecompensasNumber = 0;
 		for (String cName:cazarecompensas) {
 			Character c = characterCollection.get(cName);
@@ -598,7 +598,7 @@ public class Player implements Comparable<Player> {
 	}
 
 	public int hasCazarrecompensasPlus() {
-		String[] cazarecompensas={"Boba Fett", "Cad Bane", "Dengar", "Greedo", "Zam Wesell", "IG-88"};
+		String[] cazarecompensas={"Boba Fett", "Cad Bane", "Dengar", "Greedo", "Zam Wesell", "IG-88", "Bossk"};
 		int cazarecompensasNumber = 0;
 		int[] cazarecompensasPower=new int[cazarecompensas.length];
 		int cazarecompensasPosition = 0;
